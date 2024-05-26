@@ -6,7 +6,7 @@ import Tabs from '../../Components/Tabs/Tabs';
 import Cards from '../../Components/Cards/Cards';
 
 const Home = () => {
-    const resource = useSelector((store)=>store.resource);
+    const {resource,isLoading,isError} = useSelector((store)=>store);
     const [query,setQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [filteredResources, setFilteredResources] = useState([]);
@@ -46,7 +46,7 @@ const Home = () => {
         dispatch(getResourceData());
     },[filteredResources]);
 
-  return (
+  return  (
     <Main>
         <Tabs/>
         <input value={query} onChange={handleSearchQuery} type="text" placeholder='search...' />
@@ -59,8 +59,8 @@ const Home = () => {
                     Next
                 </button>
             </div>
-        <Homes>
-        { query?filteredResources.map((ele)=>{
+         <Homes>
+            {query?filteredResources.map((ele)=>{
                 return(
                     <Cards key={ele.id} resource={ {...ele}} />
                     )

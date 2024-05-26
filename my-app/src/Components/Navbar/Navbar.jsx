@@ -9,7 +9,7 @@ const Navbar = () => {
             <img src="https://pbs.twimg.com/profile_images/1507294115469602818/pSjeAdpX_400x400.jpg" alt="logo" />
         </div>
         <div>
-            <button onClick={()=>navigate('/NxtWave_Assignment/resource')}>+ADD</button>
+            <button onClick={()=>navigate('/NxtWave_Assignment/resource')}>+ ADD</button>
         </div>
     </Nav>
   )

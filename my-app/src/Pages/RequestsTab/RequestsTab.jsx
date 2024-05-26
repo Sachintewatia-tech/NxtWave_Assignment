@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 const RequestsTab = () => {
-    const resource = useSelector((store)=>store.resource);
+    const {resource,isLoading,isError} = useSelector((store)=>store);
     const dispatch = useDispatch();
     const filterRequestData = resource?.filter((el)=> {
         return el.tag==='request';
@@ -20,20 +20,21 @@ const RequestsTab = () => {
         notify();
     },[]);
   return (
-    <>
+      <>
             <ToastContainer position="top-center"
                 autoClose={3000}
-            />
+                />
         <Tabs/>
+        { isLoading?<h1>Loading...</h1>:
         <Req>
-            {
+            { isError?<h2>🤔Some issue in API while fetching data</h2>:
                 filterRequestData.map((ele)=>{
                     return(
                         <Cards key={ele.id} resource={ {...ele}}/>
                     )
                 })
             }
-        </Req>  
+        </Req>  }
     </>
   )
 }

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { ToastContainer, toast } from 'react-toastify';
 
 const UsersTab = () => {
-    const resource = useSelector((store)=>store.resource);
+    const {resource,isLoading,isError} = useSelector((store)=>store);
     const dispatch = useDispatch();
     const filterUserData = resource?.filter((el)=> {
         return el.tag==='user';
@@ -17,21 +17,22 @@ const UsersTab = () => {
         dispatch(getResourceData());
         notify();
     },[]);
-  return (
+  return  (
     <>
         <ToastContainer position="top-center"
             autoClose={3000}
         />
         <Tabs/>
+        { isLoading?<h1>Loading...</h1>:
         <User>
-            {
+            { isError?<h1>🤔Some issue in API while fetching data</h1>:
                 filterUserData.map((ele)=>{
                     return(
                         <Cards key={ele.id} resource={ {...ele}}/>
                     )
                 })
             }
-        </User>
+        </User>}
     </>
   )
 }
