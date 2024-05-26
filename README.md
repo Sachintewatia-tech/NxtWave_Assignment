@@ -9,3 +9,6 @@
 ![Screenshot (110)](https://github.com/Sachintewatia-tech/NxtWave_Assignment/assets/107942112/c148efbc-782c-4863-ab1b-b9850d8c6a16)
 <h2>2) Add Resource Item Page </h2>
 ![Screenshot (111)](https://github.com/Sachintewatia-tech/NxtWave_Assignment/assets/107942112/9d52afb1-87f5-4439-b796-52c1270dbfcc)
+
+
+<h4>Note :- </h4> <p>There is a some problem in API for posting data of resource item. While posting data it throws a CORS error which is come from the backend server side.</p>
